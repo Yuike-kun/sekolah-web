@@ -1,0 +1,213 @@
+/* VARIABEL WARNA */
+
+:root{
+    --smoot-green: #26c976;
+    --green: #0a9f56;
+    --dark: #1f1f33;
+    --orange: #f16126;
+    --light-orange: #fff9f1;
+    --light-green: #f1fff2;
+    --red: #f50d0d;
+    --smooth-grey: #e1e6eb;
+}
+
+/* VARIABEL SHADOW */
+
+:root{
+    --shadow-item: 0 0.125rem 0.25rem rgb(0 0 0 / 8%) !important;
+}
+
+.top-header .navbar .messages,
+.top-header .navbar .notifications {
+    position: relative !important;
+}
+
+.top-header .navbar .dropdown-searchbar .form-control {
+    box-shadow: var(--shadow-item) !important;
+}
+
+.top-header .navbar .searchbar .form-control:focus,
+.top-header .navbar .dropdown-searchbar .form-control:focus {
+    box-shadow: var(--shadow-item) !important;
+}
+
+.top-header .navbar .dropdown-large,
+.dropdown-user-setting .navbar .dropdown-large {
+	position: relative
+}
+
+.top-header .navbar .dropdown-item {
+    padding: .5rem !important;
+}
+
+.top-header .navbar .dropdown-large .dropdown-item:hover,
+.top-header .navbar .dropdown-user-setting .dropdown-item:hover {
+    border-radius: 10px !important;
+    color: #1e2125 !important;
+	background-color: #f5f5f5
+}
+
+.top-header .navbar .top-navbar-right .nav-link:hover {
+	background-color:#fff
+}
+
+.top-header .navbar .mobile-toggle-icon {
+    color: #293445 !important;
+    font-size: 17px !important;
+    font-weight: 500 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+	cursor:pointer
+}
+
+.mobile-toggle-icon:hover {
+	background-color: white !important;
+}
+
+.dropdown-toggle-nocaret:after {
+	display: none
+}
+
+.dropdown-large{
+    background-color: #fff !important;
+    height: 60px !important;
+    padding: 0 16px !important;
+    z-index: 1 !important;
+    border-radius: 10px !important;
+    position: relative !important;
+    margin-top: 20px !important;
+    box-shadow: var(--shadow-item) !important;
+}
+
+.dropdown-large .icon-inform{
+    color: var(--smoot-green) !important;
+    font-size: 28px !important;
+}
+
+.dropdown-large .dropdown-menu {
+	width: 360px !important;
+	border: 0 !important;
+	padding: 0.5rem !important;
+	border-radius: 10px !important;
+    margin-top: 20px !important;
+	box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)
+}
+
+
+.dropdown-user-setting .dropdown-menu {
+	width: 220px !important;
+	border: 0 !important;
+	padding: 0.5rem !important;
+    margin-top: 10px !important;
+	border-radius: 10px !important;
+	box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)
+}
+
+.top-header .navbar .user-setting {
+    background-color: #fff !important;
+    height: 60px !important;
+    padding: 0 16px !important;
+    z-index: 1 !important;
+    border-radius: 10px !important;
+    position: relative !important;
+    margin-top: 20px !important;
+    box-shadow: var(--shadow-item) !important;
+}
+
+.top-header .navbar .user-img {
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 50% !important;
+}
+
+.top-header .navbar .user-name{
+    font-size: 16px !important;
+    color: #5e636b !important;
+    font-weight: 500 !important;
+}
+
+.top-header .navbar .dropdown-user-designation {
+	color: #5e636b !important;
+}
+
+
+.top-header .navbar .dropdown-menu .apps:hover {
+    background-color: #f8f9fa !important;
+    transition: all 0.2 !important;
+}
+
+.top-header .navbar .dropdown-menu .apps .apps-icon-box {
+
+    color: #34383f !important;
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #e9ecef !important;
+    margin: auto !important;
+    border-radius: 50% !important;
+}
+
+.top-header .navbar .dropdown-menu .apps .apps-name {
+
+    color: #34383f !important;
+    font-size: 15px !important;
+
+}
+
+.top-header .navbar .dropdown-menu .msg-time {
+    font-size: 12px !important;
+}
+
+
+.top-header .navbar .dropdown-menu .dropdown-msg-user {
+    font-size: 14px !important;
+}
+
+.top-header .navbar .dropdown-menu .dropdown-msg-text {
+    font-size: 13px !important;
+}
+
+
+.header-message-list {
+	position: relative !important;
+	height: 400px
+}
+
+
+.header-notifications-list {
+	position: relative !important;
+	height: 400px
+}
+
+.top-header .navbar .dropdown-menu .notification-box {
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 20px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: var(--smooth-grey) !important;
+}
+
+.top-header .navbar .nav-link .notify-badge {
+    position: absolute !important;
+    top: -2px !important;
+    right: -2px !important;
+    color: #fff !important;
+    font-size: 13px !important;
+    width: 18px !important;
+    height: 18px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: var(--red) !important;
+}

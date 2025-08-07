@@ -1,0 +1,257 @@
+.flaticon-map{
+    background-color:  #e6ffe6 !important;
+}
+
+.icon-envelop{
+    background-color:  #e6ffe6 !important;
+}
+
+.address-icon .flaticon-map{
+    background-color: transparent !important;
+}
+
+.service-single-form > input{
+    background-color: #e6ffe6 !important;
+}
+
+.btn-close{
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    padding: 15px;
+}
+
+.btn-shared-wa{
+    padding: 10px 15px;
+    background-color: #1d9e11;
+    border-radius: 6px;
+    font-weight: bold;
+    color: #ffff;
+    cursor: pointer;
+}
+
+.btn-shared-fb{
+    padding: 10px 15px;
+    background-color: #3a579a;
+    border-radius: 6px;
+    font-weight: bold;
+    color: #ffff;
+    cursor: pointer;
+}
+
+.btn-shared-tw{
+    padding: 10px 15px;
+    background-color: #00abf0;
+    border-radius: 6px;
+    font-weight: bold;
+    color: #ffff;
+    cursor: pointer;
+}
+
+.btn-shared-wa:hover{
+    background-color: #080c24;
+    transition: 0.3s;
+}
+
+.btn-shared-fb:hover{
+    background-color: #080c24;
+    transition: 0.3s;
+}
+
+.btn-shared-tw:hover{
+    background-color: #080c24;
+    transition: 0.3s;
+}
+
+.choose-center-content .choose-center-content-image img{
+    text-align: center !important;
+    position: relative !important;
+    right: 0px !important;
+}
+
+.home-three-logo{
+    height: 30px !important;
+}
+
+.carousel-btn .common-btn{
+    padding: 3px 10px !important;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.carousel-btn .common-btn-warning{
+    background-color: #FF9F0D !important;
+    border-color:#FF9F0D;
+}
+
+.carousel-btn .common-btn-danger{
+    background-color: #dc2626 !important;
+    border-color:#dc2626;
+}
+
+.carousel-btn .common-btn-success{
+    background-color: #12bf24 !important;
+    border-color:#12bf24;
+}
+
+.about-us-banner-content h2 {
+    width: 380px !important;
+    font-size: 20px !important;
+}
+
+.btn-circle-progress, .progress-bar{
+    background-color: #12bf24 !important;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-circle-progress:hover{
+    color: white;
+    border: #1d9e11;
+}
+
+/* REGISTRASI PPDB */
+
+.moda-backdrop{
+    opacity: 100%;
+    background-color: #cfcfcf !important;
+}
+
+.form-header{
+    background-color: #12bf24 !important;
+}
+
+.form-register-ppdb label{
+    margin-bottom: 2px !important;
+    color: #080c24;
+    font-size: 14px !important;
+    font-weight: normal;
+}
+
+.form-register-ppdb .input-group-text{
+    color: #6b6b6b !important;
+}
+
+.multiple-step-progress{
+    font-weight: bolder;
+    background-color: #12bf24;
+    border-radius: 100%;
+    width: 80px;
+    height: 80px;
+    color: white;
+}
+
+.none-progress{
+    font-weight: bolder;
+    background-color: #cfcfcf;
+    border-radius: 100%;
+    width: 80px;
+    height: 80px;
+    color: rgb(46, 46, 46);
+}
+
+#btn-login-student{
+    padding: 20px 15px !important;
+    background-color: #12bf24 !important;
+    color: white;
+}
+
+#btn-step-next{
+    padding: 20px 15px !important;
+    background-color: #12bf24 !important;
+    color: white;
+}
+
+#btn-step-submit{
+    padding: 20px 15px !important;
+    background-color: #12bf24 !important;
+    color: white;
+}
+
+#btn-step-prev{
+    padding: 20px 15px !important;
+    background-color: #ffffff !important;
+    border: 1px solid #e2e2e2;
+    color: #12bf24 ;
+}
+
+@media screen and (min-width: 760px) {
+    .choose-center-content .choose-center-content-image img {
+        right: -60px !important;
+    }
+    .home-three-logo{
+        height: 30px !important;
+    }
+    .home-three-logo img{
+        height: 80px !important;
+    }
+    .carousel-btn .common-btn{
+        font-size: 15px;
+        padding: 3px 10px !important;
+    }
+    .about-us-banner-content h2 {
+        width: 700px !important;
+        font-size: 40px !important;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .choose-center-content .choose-center-content-image img {
+        right: -275px !important;
+    }
+    .home-three-logo{
+        height: 120px !important;
+    }
+    .carousel-btn .common-btn{
+        font-size: 15px;
+        padding: 3px 10px !important;
+    }
+}
+
+
+@-webkit-keyframes animated-dots {
+    0% {
+      transform: translateX(-100%);
+    }
+}
+
+@keyframes animated-dots {
+    0% {
+      transform: translateX(-100%);
+    }
+}
+
+
+.animated-dots {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom; }
+.animated-dots:after {
+    display: inline-block;
+    content: "...";
+-webkit-animation: animated-dots 1.2s steps(4, jump-none) infinite;
+    animation: animated-dots 1.2s steps(4, jump-none) infinite; }
+
+/* LOADING */
+
+.bg-loading{
+    background-color: #d5efda !important;
+    border-color: #12BF24 !important;
+    color: #12BF24 !important;
+}
+
+.card.card-loading{
+    opacity: 50%;
+}
+
+.card-overlay{
+    position: absolute;
+    background-color: #f4f6fa;
+    opacity: 50%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
