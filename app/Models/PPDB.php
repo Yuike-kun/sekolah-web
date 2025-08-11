@@ -49,4 +49,23 @@ class PPDB extends Model
     {
         return $this->hasOne(User::class, 'ppdb_id', 'id')->withDefault(null);
     }
+
+    //ujian
+    public function result_tests() {
+        return $this->hasMany(AnswerTest::class, 'id', 'student_id')->withDefault(null);
+    }
+
+    //Nilai Pilgan
+    public function getGradeTestAttribute() {
+        $nilai = 0;
+        $data = AnswerTest::with(['question.question_multiple_choice', 'question.question_essay'])->where('student_id', $this->id)->get();
+        foreach($data as $d) {
+            if($d->question->type == 'multiple_choice') {
+                if((int) $d->answer == $d->question->question_multiple_choice->where('is_correct', 1)->first()->id) {
+                    $nilai += $d->points;
+                }
+            }
+        }
+        return $nilai;
+    }
 }

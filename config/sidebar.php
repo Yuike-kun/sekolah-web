@@ -32,6 +32,16 @@ return [
         'permission' => ['admin'],
     ],
     [
+        'title' => 'Nilai PPDB',
+        'show' => true,
+        'description' => 'Melihat dan menilai hasil ujian ppdb.',
+        'icon' => 'scroll',
+        'route-name' => 'tes-ujian.nilai-tes',
+        'is-active' => 'tes-ujian.nilai-tes*',
+        'category' => 'Aplication',
+        'permission' => ['admin'],
+    ],
+    [
         'title' => 'Slide Show',
         'show' => true,
         'description' => 'Menampilkan data slide show.',

@@ -42,7 +42,7 @@ class Index extends Component
             foreach ($this->answer as $question => $answer) {
                 AnswerTest::create([
                     'student_id'       => auth()->user()->ppdb_id,
-                    'question_test_id' => $question,
+                    'question_test_id' => array_keys($answer)[0],
                     'answer'           => array_values($answer)[0]['value'],
                 ]);
             }
@@ -51,7 +51,8 @@ class Index extends Component
                 'message' => 'Selesai!',
                 'detail'  => 'Anda telah menyelesaikan ujian anda!.',
             ]);
-    
+            
+            $this->dispatch('countdownReset');
             return to_route('dashboard.index');
         } else {
             session()->flash('alert', [
@@ -64,7 +65,10 @@ class Index extends Component
 
     public function getSoalProperty()
     {
-        return QuestionTest::with(['question_multiple_choice', 'question_essay'])->get()->toArray();
+        return QuestionTest::with(['question_multiple_choice', 'question_essay'])
+        ->where('is_active', 1)
+        ->get()
+        ->toArray();
     }
 
     public function render()

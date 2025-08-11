@@ -104,6 +104,12 @@
             endTime = parseInt(endTime, 10);
         }
 
+        function setEndTime(durationSeconds) {
+            const newEnd = Date.now() + durationSeconds * 1000;
+            localStorage.setItem(storageKey, newEnd);
+            endTime = newEnd;
+        }
+
         function updateCountdown() {
             const now = Date.now();
             const remainingTime = Math.max(0, Math.floor((endTime - now) / 1000));
@@ -128,5 +134,9 @@
 
         updateCountdown(); // initial display
         const timer = setInterval(updateCountdown, 1000);
+
+        Livewire.on('countdownReset', () => {
+            setEndTime(3600);
+        });
     </script>
 </div>

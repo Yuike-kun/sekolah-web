@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\Auth\LogoutController;
 use App\Livewire\Auth\Login;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LogoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -154,5 +154,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::namespace('App\Livewire\StudentTest')->prefix('tes-ujian')->name('tes-ujian.')->group(function () {
         Route::get('/', Index::class)->name('index');
+        Route::get('/nilai-tes', TestGrade::class)
+        ->middleware('roles:admin')
+        ->name('nilai-tes');
+        Route::get('/nilai/{id}', Grading::class)
+        ->middleware('roles:admin')
+        ->name('nilai');
     });
 });
