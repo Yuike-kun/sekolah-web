@@ -28,7 +28,8 @@ Route::namespace('App\Livewire\LandingPage')->group(function () {
         Route::get('/logo-meaning', LogoMeaning::class)->name('logo-meaning');
     });
     Route::get('berita', News::class)->name('berita');
-    Route::get('program', Program::class)->name('program');
+    Route::get('berita/{id}', NewsSingle::class)->name('berita-detail');
+    Route::get('program-kami', Program::class)->name('landing.program');
     Route::get('pendaftaran-siswa', StudentRegistration::class)->name('pendaftaran-siswa');
 });
 
@@ -152,6 +153,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/', Index::class)->name('index');
     });
 
+    //Ujian
     Route::namespace('App\Livewire\StudentTest')->prefix('tes-ujian')->name('tes-ujian.')->group(function () {
         Route::get('/', Index::class)->name('index');
         Route::get('/nilai-tes', TestGrade::class)
@@ -160,5 +162,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/nilai/{id}', Grading::class)
         ->middleware('roles:admin')
         ->name('nilai');
+    });
+
+    //Program
+    Route::namespace('App\Livewire\Program')->middleware('roles:admin')->prefix('program')->name('program.')->group(function () {
+        Route::get('/', Index::class)->name('index');
+        Route::get('/tambah', Create::class)->name('create');
+        Route::get('/sunting/{id}', Edit::class)->name('edit');
     });
 });

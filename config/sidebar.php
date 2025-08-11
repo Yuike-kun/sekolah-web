@@ -179,6 +179,16 @@ return [
         ],
     ],
     [
+        'title' => 'Program',
+        'show' => true,
+        'decription' => 'Halaman program landing page',
+        'icon' => 'star',
+        'route-name' => 'program.index',
+        'is-active' => 'program*',
+        'category' => 'Landing Page',
+        'permission' => ['admin'],
+    ],
+    [
         'title' => 'Master',
         'show' => true,
         'icon' => 'database',

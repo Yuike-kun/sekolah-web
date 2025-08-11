@@ -2,9 +2,10 @@
 
 namespace App\Livewire\LandingPage;
 
-use Livewire\Attributes\Layout;
-use Livewire\Attributes\Title;
+use App\Models\News as Berita;
 use Livewire\Component;
+use Livewire\Attributes\Title;
+use Livewire\Attributes\Layout;
 
 class News extends Component
 {
@@ -12,6 +13,8 @@ class News extends Component
     #[Title('Berita')]
     public function render()
     {
-        return view('livewire.landing-page.news');
+        return view('livewire.landing-page.news', [
+            'berita' => Berita::all()
+        ]);
     }
 }

@@ -64,8 +64,8 @@ return [
     [
         'title' => 'Program',
         'show' => true,
-        'route-name' => 'program',
-        'is-active' => 'program',
+        'route-name' => 'landing.program',
+        'is-active' => 'landing.program',
         'permission' => null,
     ],
     [

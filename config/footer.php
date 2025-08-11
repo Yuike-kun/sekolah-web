@@ -26,7 +26,7 @@ return [
         ],
         [
             'title' => 'Program',
-            'route-name' => 'program',
+            'route-name' => 'landing.program',
         ],
         [
             'title' => 'Pendaftaran Siswa',

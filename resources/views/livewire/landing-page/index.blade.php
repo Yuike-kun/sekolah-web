@@ -1,6 +1,6 @@
 <div>
     {{-- CAROUSEL --}}
-    <x-frontend.benner-carousel :items="$slides"/>
+    <x-frontend.benner-carousel :items="$slides" />
 
     {{-- KATA SAMBUTAN --}}
     @if (isset($profil->title_foreword) && isset($profil->foreword))
@@ -49,46 +49,23 @@
                     </div>
                 </div>
                 <div class="col-xl-12">
-                    <div class="testimonial-slider owl-carousel owl-theme owl-nav-none">
-                        <div class="service-container blog-container wow fadeInUp">
-                            <div class="service-content-wrapper">
-                                <div class="service-content-wrapper-overlay wow"></div>
-                                <div class="service-image blog-image">
-                                    <img src="{{ asset('images/foto02.JPG') }}" alt="img">
+                    <div class="testimonial-slider owl-carousel owl-theme owl-nav-none">)
+                        @foreach ($berita as $item)
+                            <div class="service-container blog-container wow fadeInUp">
+                                <div class="service-content-wrapper">
+                                    <div class="service-content-wrapper-overlay wow"></div>
+                                    <div class="service-image blog-image">
+                                        <img src="{{ asset('storage/' . $item->image) }}" alt="img">
+                                    </div>
+                                </div>
+                                <div class="service-info">
+                                    <span>{{ $item->created_at->translatedFormat("l, d F Y") }}</span>
+                                    <h5>{{ $item->heading }}</h5>
+                                    <a href="{{ route('berita-detail', $item->id) }}">Lihat Berita <i
+                                            class="fa-solid fa-arrow-right-long"></i></a>
                                 </div>
                             </div>
-                            <div class="service-info">
-                                <span>Terbit / June 13, 2022</span>
-                                <h5>Why has Prinash is proven to be a lifesaver?</h5>
-                                <a href="blog-single.html">Lihat Berita <i class="fa-solid fa-arrow-right-long"></i></a>
-                            </div>
-                        </div>
-                        <div class="service-container blog-container wow fadeInUp">
-                            <div class="service-content-wrapper">
-                                <div class="service-content-wrapper-overlay wow"></div>
-                                <div class="service-image blog-image">
-                                    <img src="{{ asset('images/foto01.JPG') }}" alt="img">
-                                </div>
-                            </div>
-                            <div class="service-info">
-                                <span>Terbit / June 13, 2022</span>
-                                <h5>Why has Prinash is proven to be a lifesaver?</h5>
-                                <a href="blog-single.html">Lihat Berita <i class="fa-solid fa-arrow-right-long"></i></a>
-                            </div>
-                        </div>
-                        <div class="service-container blog-container wow fadeInUp">
-                            <div class="service-content-wrapper">
-                                <div class="service-content-wrapper-overlay wow"></div>
-                                <div class="service-image blog-image">
-                                    <img src="{{ asset('images/foto03.png') }}" alt="img">
-                                </div>
-                            </div>
-                            <div class="service-info">
-                                <span>Terbit / June 13, 2022</span>
-                                <h5>Semarak Kemerdekaan dengan Tema 'Eratkan Persaudaraan..."</h5>
-                                <a href="blog-single.html">Lihat Berita <i class="fa-solid fa-arrow-right-long"></i></a>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

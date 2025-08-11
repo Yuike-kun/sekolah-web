@@ -44,6 +44,14 @@ return [
             'throw' => false,
         ],
 
+        'menu-berita' => [
+            'driver' => 'local',
+            'root' => storage_path('app/menu-berita'),
+            'url' => env('APP_URL').'/storage/menu-berita',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

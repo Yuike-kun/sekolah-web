@@ -2,11 +2,12 @@
 
 namespace App\Livewire\LandingPage;
 
+use App\Models\News;
 use App\Models\Profil;
-use App\Models\SlideShow;
-use Livewire\Attributes\Layout;
-use Livewire\Attributes\Title;
 use Livewire\Component;
+use App\Models\SlideShow;
+use Livewire\Attributes\Title;
+use Livewire\Attributes\Layout;
 
 class Index extends Component
 {
@@ -17,6 +18,7 @@ class Index extends Component
         return view('livewire.landing-page.index', [
             'profil' => Profil::first(),
             'slides' => SlideShow::all(),
+            'berita' => News::limit(3)->get()
         ]);
     }
 }

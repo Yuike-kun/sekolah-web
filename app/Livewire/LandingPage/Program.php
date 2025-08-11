@@ -2,9 +2,10 @@
 
 namespace App\Livewire\LandingPage;
 
-use Livewire\Attributes\Layout;
-use Livewire\Attributes\Title;
+use App\Models\Program as Data;
 use Livewire\Component;
+use Livewire\Attributes\Title;
+use Livewire\Attributes\Layout;
 
 class Program extends Component
 {
@@ -12,6 +13,8 @@ class Program extends Component
     #[Title('Program')]
     public function render()
     {
-        return view('livewire.landing-page.program');
+        return view('livewire.landing-page.program', [
+            'programs' => Data::all()
+        ]);
     }
 }
