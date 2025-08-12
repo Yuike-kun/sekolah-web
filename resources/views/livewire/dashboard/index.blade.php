@@ -1,13 +1,15 @@
 <div>
 
     <x-page-title page-title="Dashboard" page-pretitle="Ringkasan aplikasi anda.">
-        @if (isset($profil->is_active_ppdb))
-            <button wire:click='toggleActivePPDB'
-                class="btn {{ $profil->is_active_ppdb ? 'btn-success' : 'btn-dark' }} mb-2">PPDB
-                {{ $profil->is_active_ppdb ? 'AKTIF' : 'NONAKTIF' }}</button>
-        @else
-            <button wire:click='toggleActivePPDB' class="btn btn-dark mb-2">PPDB
-                NONAKTIF</button>
+        @if (auth()->user()->role == 'admin')
+            @if (isset($profil->is_active_ppdb))
+                <button wire:click='toggleActivePPDB'
+                    class="btn {{ $profil->is_active_ppdb ? 'btn-success' : 'btn-dark' }} mb-2">PPDB
+                    {{ $profil->is_active_ppdb ? 'AKTIF' : 'NONAKTIF' }}</button>
+            @else
+                <button wire:click='toggleActivePPDB' class="btn btn-dark mb-2">PPDB
+                    NONAKTIF</button>
+            @endif
         @endif
     </x-page-title>
 
@@ -126,6 +128,83 @@
         </div>
     @endif
 
+    @if (auth()->user()->role != 'admin')
+        <div class="row">
+            <div class="col-lg-4 col-12">
+                <div class="card">
+                    <div class="card-body d-flex align-items-center flex-column">
+                        <img src="https://placehold.co/100x100" class="img-fluid rounded-circle">
+                        <h4>{{ auth()->user()->name }}</h4>
+                        <table class="w-100" cellpadding="2">
+                            <tr>
+                                <th style="width: 150px;">NIK</th>
+                                <td>{{ auth()->user()->ppdb->student->nik }}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 150px;">NISN</th>
+                                <td>{{ auth()->user()->ppdb->student->nisn }}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 150px;">Jurusan</th>
+                                <td>{{ auth()->user()->ppdb->student->competence }}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 150px;">Jenis Kelamin</th>
+                                <td>{{ auth()->user()->ppdb->student->gender }}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 150px;">Status</th>
+                                <td>
+                                    {{ auth()->user()->ppdb->student->verification_graduation }}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="text-center mb-3">Detail Ujian Anda</h4>
+                        <hr>
+                        <div class="row">
+                            <div class="col-6 d-flex flex-column align-items-center">
+                                <h5>Status Ujian</h5>
+                                @if ($this->checkIfAlreadyDoTest())
+                                    <span class="badge rounded-pill text-bg-success" style="font-size: 13px">Sudah
+                                        Mengikuti</span>
+                                @else
+                                    <span class="badge rounded-pill text-bg-danger" style="font-size: 13px">Belum
+                                        Mengikuti</span>
+                                @endif
+                            </div>
+                            {{-- <div class="col-6 col-lg-3 d-flex flex-column align-items-center">
+                                <h5>Jawaban Benar</h5>
+                                <div style="width: 50px; height: 50px; border-radius: 50%;"
+                                    class="bg-primary d-flex justify-content-center align-items-center fs-6 text-white">
+                                    5
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-3 d-flex flex-column align-items-center">
+                                <h5>Jawaban Salah</h5>
+                                <div style="width: 50px; height: 50px; border-radius: 50%;"
+                                    class="bg-primary d-flex justify-content-center align-items-center fs-6 text-white">
+                                    0
+                                </div>
+                            </div> --}}
+                            <div class="col-6 d-flex flex-column align-items-center">
+                                <h5>Nilai Anda</h5>
+                                <div style="width: 50px; height: 50px; border-radius: 50%;"
+                                    class="bg-{{ $this->checkGrade()->grade <= 69 ? 'danger' : 'success' }} d-flex justify-content-center align-items-center fs-6 text-white fw-bold">
+                                    {{ $this->checkGrade()->grade }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
 </div>
 
 @section('script')

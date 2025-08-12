@@ -2,11 +2,13 @@
 
 namespace App\Livewire\Dashboard;
 
-use App\Helpers\DashboardChart;
 use App\Models\Profil;
 use App\Models\Student;
-use Livewire\Attributes\Title;
 use Livewire\Component;
+use App\Models\AnswerTest;
+use App\Models\StudentGrade;
+use Livewire\Attributes\Title;
+use App\Helpers\DashboardChart;
 
 class Index extends Component
 {
@@ -117,6 +119,18 @@ class Index extends Component
             'message' => 'Berhasil.',
             'detail' => 'Verfikasi siswa berhasil di ubah!',
         ]);
+    }
+
+    public function checkIfAlreadyDoTest() {
+        if(auth()->user()->role != 'admin') {
+            return AnswerTest::where('student_id', auth()->user()->ppdb->id)->exists();
+        }
+    }
+
+    public function checkGrade() {
+        if(auth()->user()->role != 'admin') {
+            return StudentGrade::where('student_id', auth()->user()->ppdb->id)->first();
+        }
     }
 
     public function render()
