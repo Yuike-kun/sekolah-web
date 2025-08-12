@@ -941,6 +941,74 @@
         @if ($currStep == 5)
             <x-ppdb.container-multi-step>
                 <div class="card-header text-center form-header">
+                    <h6 class="text-white mt-2">FORM ISIAN</h6>
+                    <h5 class="fw-bold text-white">DATA DOKUMEN</h5>
+                </div>
+
+                <div class="card-body form-register-ppdb">
+                    <div class="row align-center">
+                        <div class="col-lg-3 col-12 align-self-center">
+                            <label for="namaSekolah">File Foto<span class="text-danger">*</span></label>
+                        </div>
+                        <div class="col-lg-9 col-12">
+                            <x-backend.form.input name="file_foto" wire:model.lazy="file_foto" type="file" />
+                        </div>
+                    </div>
+                    <div class="row align-center">
+                        <div class="col-lg-3 col-12 align-self-center">
+                            <label for="namaSekolah">File Ijazah<span class="text-danger">*</span></label>
+                        </div>
+                        <div class="col-lg-9 col-12">
+                            <x-backend.form.input name="file_ijazah" wire:model.lazy="file_ijazah" type="file" />
+                        </div>
+                    </div>
+                    <div class="row align-center">
+                        <div class="col-lg-3 col-12 align-self-center">
+                            <label for="namaSekolah">File Raport<span class="text-danger">*</span></label>
+                        </div>
+                        <div class="col-lg-9 col-12">
+                            <x-backend.form.input name="file_raport" wire:model.lazy="file_raport" type="file" />
+                        </div>
+                    </div>
+                    <div class="row align-center">
+                        <div class="col-lg-3 col-12 align-self-center">
+                            <label for="namaSekolah">File Kejuruan<span class="text-danger">*</span></label>
+                        </div>
+                        <div class="col-lg-9 col-12">
+                            <x-backend.form.input name="file_kejuruan" wire:model.lazy="file_kejuruan" type="file" />
+                        </div>
+                    </div>
+                    <div class="row align-center">
+                        <div class="col-lg-3 col-12 align-self-center">
+                            <label for="namaSekolah">File Kartu Keluarga<span class="text-danger">*</span></label>
+                        </div>
+                        <div class="col-lg-9 col-12">
+                            <x-backend.form.input name="file_kartu_keluarga" wire:model.lazy="file_kartu_keluarga" type="file" />
+                        </div>
+                    </div>
+                    <div class="row align-center">
+                        <div class="col-lg-3 col-12 align-self-center">
+                            <label for="namaSekolah">File PKH<span class="text-danger">*</span></label>
+                        </div>
+                        <div class="col-lg-9 col-12">
+                            <x-backend.form.input name="file_pkh" wire:model.lazy="file_pkh" type="file" />
+                        </div>
+                    </div>
+                    <div class="row align-center">
+                        <div class="col-lg-3 col-12 align-self-center">
+                            <label for="namaSekolah">File KIP<span class="text-danger">*</span></label>
+                        </div>
+                        <div class="col-lg-9 col-12">
+                            <x-backend.form.input name="file_kip" wire:model.lazy="file_kip" type="file" />
+                        </div>
+                    </div>
+                </div>
+            </x-ppdb.container-multi-step>
+        @endif
+
+        @if ($currStep == 6)
+            <x-ppdb.container-multi-step>
+                <div class="card-header text-center form-header">
                     <h6 class="text-white mt-2">KONFIRMASI</h6>
                     <h5 class="fw-bold text-white">DATA CALON SISWA</h5>
                 </div>
@@ -971,11 +1039,11 @@
                 </div>
 
                 <div>
-                    @if ($currStep >= 1 && $currStep < 5)
+                    @if ($currStep >= 1 && $currStep < 6)
                         <x-frontend.button.next target="increaseStep" name="Berikutnya" />
                     @endif
 
-                    @if ($currStep == 5)
+                    @if ($currStep == 6)
                         <x-frontend.button.save target="save" name="Kirim" />
                     @endif
                 </div>
