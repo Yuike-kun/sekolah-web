@@ -9,7 +9,7 @@ use Livewire\Component;
 
 class LogoMeaning extends Component
 {
-    #[Layout('Layouts.landing-page')]
+    #[Layout('layouts.landing-page')]
     #[Title('Makna Logo')]
     public function render()
     {
