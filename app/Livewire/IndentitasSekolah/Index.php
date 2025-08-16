@@ -56,7 +56,7 @@ class Index extends Component
     public function rules()
     {
         return [
-            'logoSekolah'        => ['nullable', 'image', 'max:2048'],
+            'logoSekolah'        => ['nullable', 'image', 'max:4096'],
             'kepalaSekolah'      => ['nullable', 'string', 'min:2', 'max:255'],
             'wakilSekolah'       => ['nullable', 'string', 'min:2', 'max:255'],
             'namaSekolah'        => ['nullable', 'string', 'min:2', 'max:255'],
@@ -119,7 +119,7 @@ class Index extends Component
         try {
             DB::beginTransaction();
 
-            $old_photo = IdentitiySchool::first()->logo;
+            $old_photo = IdentitiySchool::first()?->logo;
 
             IdentitiySchool::query()->delete();
             AppIdentitiy::query()->delete();
@@ -157,19 +157,20 @@ class Index extends Component
             }
 
             DB::commit();
+
+            session()->flash('alert', [
+            'type'    => 'success',
+            'message' => 'Berhasil.',
+            'detail'  => 'Identitas sekolah berhasil disunting',
+        ]);
         } catch (Exception $e) {
+            dd($e);
             session()->flash('alert', [
                 'type'    => 'danger',
                 'message' => 'Gagal.',
                 'detail'  => 'Identitas sekolah gagal disunting',
             ]);
         }
-
-        session()->flash('alert', [
-            'type'    => 'success',
-            'message' => 'Berhasil.',
-            'detail'  => 'Identitas sekolah berhasil disunting',
-        ]);
     }
 
     public function render()

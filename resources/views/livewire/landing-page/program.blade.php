@@ -5,7 +5,7 @@
                 <div class="col-lg-12">
                     <div class="common-title align-title">
                         <span>PROGRAM</span>
-                        <h3>Program Unggulan <br> MTsQ Azhar Center Makassar.</h3>
+                        <h3>Program Unggulan <br> {{ App\Models\IdentitiySchool::first()?->name_school ?? 'School Name' }}.</h3>
                     </div>
                 </div>
 

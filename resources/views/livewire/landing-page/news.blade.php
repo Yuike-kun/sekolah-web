@@ -4,7 +4,6 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="common-title text-center">
-                        <span>APA KABAR AZHAR CENTER</span>
                         <h3>BERITA</h3>
                     </div>
                 </div>

@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="about-us-banner-content mt-2">
-                        <h2>Pendaftaran Siswa Baru MTsQ Azhar Center Makassar.</h2>
+                        <h2>Pendaftaran Siswa Baru {{ App\Models\IdentitiySchool::first()?->name_school ?? 'School Name' }}</h2>
                         <div class="d-flex gap-2 justify-content-center carousel-btn">
                             <a id="daftar" href="{{ route('ppdb.registrasi-siswa') }}"
                                 class="common-btn common-btn-warning common-btn-3 d-flex" data-animation="fadeInUp"
