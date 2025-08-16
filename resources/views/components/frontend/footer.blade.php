@@ -9,7 +9,7 @@
                                 <div class="footer-content">
                                     <div class="footer-content-inner">
                                         <div class="footer-logo">
-                                            <img src="{{ asset('logo/logo-icon02.png') }}" alt="logo">
+                                            <img src="{{ asset('storage/' . App\Models\IdentitiySchool::first()->logo) }}">
                                         </div>
                                         <p>MTsQ AZHAR CENTER MAKASSAR</p>
                                         <div>
@@ -60,7 +60,7 @@
                                         <h5 class="mb-2">Video</h5>
                                         <div class="d-flex flex-col">
                                             <iframe width="320" height="150"
-                                                src="https://www.youtube.com/embed/rsIRrpt-TY4?si=APER0z66V_yXJMQu"
+                                                src="https://www.youtube.com/embed/XZaq5v5cQ2M?si=oJHyXBACfsobhDAR"
                                                 title="YouTube video player" frameborder="0"
                                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                                 allowfullscreen></iframe>
@@ -68,7 +68,7 @@
                                     </div>
                                 </div>
 
-                                <div class="footer-content htr-footer-content mt-2">
+                                {{-- <div class="footer-content htr-footer-content mt-2">
                                     <div class="footer-content-inner">
 
                                         <div class="footer-content-inner footer-content-inner-last-child">
@@ -108,7 +108,7 @@
 
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>

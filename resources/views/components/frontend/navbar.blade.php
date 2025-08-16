@@ -8,8 +8,9 @@
                 <div class="row">
                     <div class="col-xl-2 col-lg-2">
                         <div class="logo home-three-logo d-flex">
-                            <a class="m-auto" href="{{ route('beranda') }}"><img src="{{ asset('logo/logo-icon.png') }}"
-                                    alt="logo"></a>
+                            <a class="m-auto" href="{{ route('beranda') }}">
+                                <img src="{{ asset('storage/' . App\Models\IdentitiySchool::first()->logo) }}">
+                            </a>
                         </div>
                     </div>
                     <div class="col-xl-10 col-lg-10">
@@ -19,14 +20,15 @@
                                     <i class="icon-envelop"></i>
                                     <div class="home-three-header-top-content-wrapper-info">
                                         <span>Email Kami</span>
-                                        <a href="mailto:Officeat@gmail.com">mtsazharcenter275@gmail.com</a>
+                                        <a
+                                            href="mailto:{{ App\Models\AppIdentitiy::first()->email_school }}">{{ App\Models\AppIdentitiy::first()->email_school }}</a>
                                     </div>
                                 </li>
                                 <li class="li-content">
                                     <i class="flaticon-map"></i>
                                     <div class="home-three-header-top-content-wrapper-info">
                                         <span>Lokasi Kami</span>
-                                        <a href="mailto:Officeat@gmail.com">Makassar, Indonesia</a>
+                                        <a href="#">{{ App\Models\IdentitiySchool::first()->location_study }}</a>
                                     </div>
                                 </li>
                                 <li class="li-content">
@@ -49,10 +51,12 @@
             <div id="mobile-menu-wrap"></div>
             <div class="mobile-content">
                 <ul>
-                    <li><a href="tel:+000(123)45688"><i class="fa-brands fa-whatsapp"></i>+62 812-3450-4649</a></li>
+                    <li><a href="#"><i
+                                class="fa-brands fa-whatsapp"></i>{{ App\Models\AppIdentitiy::first()->contact_school }}</a>
+                    </li>
                     <li class="li-content">
                         <a href="mailto:info.wrapdiv.com">
-                            <i class="fa-regular fa-envelope"></i>mtsazharcenter275@gmail.com
+                            <i class="fa-regular fa-envelope"></i>{{ App\Models\AppIdentitiy::first()->email_school }}
                         </a>
                     </li>
                 </ul>
@@ -60,10 +64,14 @@
             <div class="mobile-info">
                 <ul>
                     <li>Social Links :</li>
-                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                    <li><a href="{{ App\Models\AppIdentitiy::first()->facebook_school }}"><i
+                                class="fa-brands fa-facebook-f"></i></a></li>
+                    <li><a href="{{ App\Models\AppIdentitiy::first()->instagram_school }}"><i
+                                class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="{{ App\Models\AppIdentitiy::first()->twitter_school }}"><i
+                                class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="{{ App\Models\AppIdentitiy::first()->youtube_school }}"><i
+                                class="fa-brands fa-youtube"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -120,10 +128,10 @@
                                 <div class="menu-right-info">
                                     <div class="hrader-top-info home-three-hrader-top-info">
                                         <ul>
-                                            <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                                            <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                                            <li><a href="{{ App\Models\AppIdentitiy::first()->facebook_school }}"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                            <li><a href="{{ App\Models\AppIdentitiy::first()->instagram_school }}"><i class="fa-brands fa-instagram"></i></a></li>
+                                            <li><a href="{{ App\Models\AppIdentitiy::first()->twitter_school }}"><i class="fa-brands fa-twitter"></i></a></li>
+                                            <li><a href="{{ App\Models\AppIdentitiy::first()->youtube_school }}"><i class="fa-brands fa-youtube"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>

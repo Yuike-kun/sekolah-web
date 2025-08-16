@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Livewire\IndentitasSekolah;
 
 use App\Models\AppIdentitiy;
@@ -57,47 +56,47 @@ class Index extends Component
     public function rules()
     {
         return [
-            'logoSekolah' => ['nullable', 'image', 'max:2048'],
-            'kepalaSekolah' => ['nullable', 'string', 'min:2', 'max:255'],
-            'wakilSekolah' => ['nullable', 'string', 'min:2', 'max:255'],
-            'namaSekolah' => ['nullable', 'string', 'min:2', 'max:255'],
-            'namaSekolah' => ['nullable', 'string', 'min:2', 'max:255'],
-            'jenjangSekolah' => ['nullable', 'string', 'min:2', 'max:255'],
-            'npsn' => ['nullable', 'string', 'min:2', 'max:255'],
-            'statusSekolah' => ['nullable', 'string', 'min:2', 'max:255'],
+            'logoSekolah'        => ['nullable', 'image', 'max:2048'],
+            'kepalaSekolah'      => ['nullable', 'string', 'min:2', 'max:255'],
+            'wakilSekolah'       => ['nullable', 'string', 'min:2', 'max:255'],
+            'namaSekolah'        => ['nullable', 'string', 'min:2', 'max:255'],
+            'namaSekolah'        => ['nullable', 'string', 'min:2', 'max:255'],
+            'jenjangSekolah'     => ['nullable', 'string', 'min:2', 'max:255'],
+            'npsn'               => ['nullable', 'string', 'min:2', 'max:255'],
+            'statusSekolah'      => ['nullable', 'string', 'min:2', 'max:255'],
 
-            'provinsi' => ['nullable', 'string', 'min:2', 'max:255'],
-            'kabupaten' => ['nullable', 'string', 'min:2', 'max:255'],
-            'kecamatan' => ['nullable', 'string', 'min:2', 'max:255'],
-            'kelurahan' => ['nullable', 'string', 'min:2', 'max:255'],
-            'alamatSekolah' => ['nullable', 'string', 'min:2', 'max:255'],
+            'provinsi'           => ['nullable', 'string', 'min:2', 'max:255'],
+            'kabupaten'          => ['nullable', 'string', 'min:2', 'max:255'],
+            'kecamatan'          => ['nullable', 'string', 'min:2', 'max:255'],
+            'kelurahan'          => ['nullable', 'string', 'min:2', 'max:255'],
+            'alamatSekolah'      => ['nullable', 'string', 'min:2', 'max:255'],
 
-            'emailSekolah' => ['nullable', 'string', 'email'],
+            'emailSekolah'       => ['nullable', 'string', 'email'],
             'nomorPonselSekolah' => ['nullable', 'string'],
-            'facebookSekolah' => ['nullable', 'string', 'max:255'],
-            'instagramSekolah' => ['nullable', 'string', 'max:255'],
-            'twitterSekolah' => ['nullable', 'string', 'max:255'],
-            'youtubeSekolah' => ['nullable', 'string', 'max:255'],
+            'facebookSekolah'    => ['nullable', 'string', 'max:255'],
+            'instagramSekolah'   => ['nullable', 'string', 'max:255'],
+            'twitterSekolah'     => ['nullable', 'string', 'max:255'],
+            'youtubeSekolah'     => ['nullable', 'string', 'max:255'],
         ];
     }
 
     public function mount()
     {
         $school = IdentitiySchool::first();
-        $app = AppIdentitiy::first();
+        $app    = AppIdentitiy::first();
 
         if ($school) {
-            $this->provinsi = $school->province;
+            $this->provinsi  = $school->province;
             $this->kabupaten = $school->regency;
             $this->kecamatan = $school->district;
             $this->kelurahan = $school->village;
 
-            $this->namaSekolah = $school->name_school;
-            $this->kepalaSekolah = $school->ladder_study;
-            $this->wakilSekolah = $school->vice_pricipal;
-            $this->statusSekolah = $school->status_school;
-            $this->npsn = $school->npsn;
-            $this->alamatSekolah = $school->location_study;
+            $this->namaSekolah    = $school->name_school;
+            $this->kepalaSekolah  = $school->ladder_study;
+            $this->wakilSekolah   = $school->vice_pricipal;
+            $this->statusSekolah  = $school->status_school;
+            $this->npsn           = $school->npsn;
+            $this->alamatSekolah  = $school->location_study;
             $this->jenjangSekolah = $school->school_level;
 
             $this->LOGO = $school->logo;
@@ -105,11 +104,11 @@ class Index extends Component
 
         if ($app) {
             $this->nomorPonselSekolah = $app->contact_school;
-            $this->emailSekolah = $app->email_school;
-            $this->facebookSekolah = $app->facebook_school;
-            $this->instagramSekolah = $app->instagram_school;
-            $this->twitterSekolah = $app->twitter_school;
-            $this->youtubeSekolah = $app->youtube_school;
+            $this->emailSekolah       = $app->email_school;
+            $this->facebookSekolah    = $app->facebook_school;
+            $this->instagramSekolah   = $app->instagram_school;
+            $this->twitterSekolah     = $app->twitter_school;
+            $this->youtubeSekolah     = $app->youtube_school;
         }
     }
 
@@ -119,52 +118,57 @@ class Index extends Component
 
         try {
             DB::beginTransaction();
-            $school = IdentitiySchool::updateOrCreate([
-                'province' => $this->provinsi,
-                'regency' => $this->kabupaten,
-                'district' => $this->kecamatan,
-                'village' => $this->kelurahan,
-            ], [
-                'name_school' => $this->namaSekolah,
-                'ladder_study' => $this->kepalaSekolah,
-                'vice_pricipal' => $this->wakilSekolah,
-                'status_school' => $this->statusSekolah,
-                'npsn' => $this->npsn,
+
+            $old_photo = IdentitiySchool::first()->logo;
+
+            IdentitiySchool::query()->delete();
+            AppIdentitiy::query()->delete();
+
+            $school = IdentitiySchool::create([
+                'province'       => $this->provinsi,
+                'regency'        => $this->kabupaten,
+                'district'       => $this->kecamatan,
+                'village'        => $this->kelurahan,
+                'name_school'    => $this->namaSekolah,
+                'ladder_study'   => $this->kepalaSekolah,
+                'vice_pricipal'  => $this->wakilSekolah,
+                'status_school'  => $this->statusSekolah,
+                'npsn'           => $this->npsn,
                 'location_study' => $this->alamatSekolah,
-                'school_level' => $this->jenjangSekolah,
+                'school_level'   => $this->jenjangSekolah,
             ]);
 
-            AppIdentitiy::updateOrCreate([
-                'contact_school' => $this->nomorPonselSekolah,
-                'email_school' => $this->emailSekolah,
-            ], [
-                'facebook_school' => $this->facebookSekolah,
-                'youtube_school' => $this->youtubeSekolah,
+            AppIdentitiy::create([
+                'contact_school'   => $this->nomorPonselSekolah,
+                'email_school'     => $this->emailSekolah,
+                'facebook_school'  => $this->facebookSekolah,
+                'youtube_school'   => $this->youtubeSekolah,
                 'instagram_school' => $this->instagramSekolah,
-                'twitter_school' => $this->twitterSekolah,
+                'twitter_school'   => $this->twitterSekolah,
             ]);
 
             if ($this->logoSekolah) {
                 if ($school->logo) {
-                    File::delete(public_path('storage/'.$school->logo));
+                    File::delete(public_path('storage/' . $school->logo));
                 }
-
                 $school->update(['logo' => $this->logoSekolah->store('/identity-school', 'public')]);
+            } else {
+                $school->update(['logo' => $old_photo]);
             }
 
             DB::commit();
         } catch (Exception $e) {
             session()->flash('alert', [
-                'type' => 'danger',
+                'type'    => 'danger',
                 'message' => 'Gagal.',
-                'detail' => 'Identitas sekolah gagal disunting',
+                'detail'  => 'Identitas sekolah gagal disunting',
             ]);
         }
 
         session()->flash('alert', [
-            'type' => 'success',
+            'type'    => 'success',
             'message' => 'Berhasil.',
-            'detail' => 'Identitas sekolah berhasil disunting',
+            'detail'  => 'Identitas sekolah berhasil disunting',
         ]);
     }
 
