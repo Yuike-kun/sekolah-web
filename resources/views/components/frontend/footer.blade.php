@@ -9,9 +9,14 @@
                                 <div class="footer-content">
                                     <div class="footer-content-inner">
                                         <div class="footer-logo">
-                                            <img src="{{ asset('storage/' . App\Models\IdentitiySchool::first()->logo) }}">
+                                            @if (App\Models\IdentitiySchool::first()?->logo)
+                                                <img
+                                                    src="{{ asset('storage/' . App\Models\IdentitiySchool::first()?->logo) }}">
+                                            @else
+                                                <img src="https://placehold.co/100x100">
+                                            @endif
                                         </div>
-                                        <p>MTsQ AZHAR CENTER MAKASSAR</p>
+                                        <p>{{ App\Models\IdentitiySchool::first()?->name_school ?? 'School Name' }}</p>
                                         <div>
                                             <iframe
                                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.565116820652!2d119.47791067394368!3d-5.173424294804004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbee30998f9decb%3A0xa5a2933e934145c7!2sJl.%20Sipil%20Raya%2C%20Bangkala%2C%20Kec.%20Manggala%2C%20Kota%20Makassar%2C%20Sulawesi%20Selatan%2090235!5e0!3m2!1sid!2sid!4v1695097779757!5m2!1sid!2sid"
@@ -23,8 +28,7 @@
                                                 <i class="flaticon-map"></i>
                                             </div>
                                             <div class="address-info">
-                                                Jl. Sipil Raya No. 12-13, Kelurahan Biring Romang, Kecamatan Manggala,
-                                                Kota Makassar.
+                                                {{ App\Models\IdentitiySchool::first()?->location_study }}
                                             </div>
                                         </div>
                                         <div class="address">
@@ -33,7 +37,8 @@
                                             </div>
                                             <div class="address-info">
                                                 <span>WhatsApp</span>
-                                                <a href="tel:1800-222-155">+62 812-3450-4649</a>
+                                                <a
+                                                    href="tel:1800-222-155">{{ App\Models\AppIdentitiy::first()?->contact_school }}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -121,10 +126,14 @@
                         </div>
                         <div class="footer-media">
                             <ul>
-                                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                                <li><a href="{{ App\Models\AppIdentitiy::first()?->facebook_school }}"><i
+                                            class="fa-brands fa-facebook-f"></i></a></li>
+                                <li><a href="{{ App\Models\AppIdentitiy::first()?->instagram_school }}"><i
+                                            class="fa-brands fa-instagram"></i></a></li>
+                                <li><a href="{{ App\Models\AppIdentitiy::first()?->twitter_school }}"><i
+                                            class="fa-brands fa-twitter"></i></a></li>
+                                <li><a href="{{ App\Models\AppIdentitiy::first()?->youtube_school }}"><i
+                                            class="fa-brands fa-youtube"></i></a></li>
                             </ul>
                         </div>
                     </div>

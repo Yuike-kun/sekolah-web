@@ -2,7 +2,12 @@
     <aside class="sidebar-wrapper" data-simplebar="true">
         <div class="sidebar-header d-flex">
             <div class="m-auto">
-                <img src="{{ asset('storage/' . App\Models\IdentitiySchool::first()->logo) }}" class="logo-icon" alt="logo icon" style="object-fit: cover; height: 60px; margin-top: 12px;">
+                @if (App\Models\IdentitiySchool::first()?->logo)
+                    <img src="{{ asset('storage/' . App\Models\IdentitiySchool::first()?->logo) }}" class="logo-icon"
+                        alt="logo icon" style="object-fit: cover; height: 60px; margin-top: 12px;">
+                @else
+                    <img src="https://placehold.co/100x100">
+                @endif
             </div>
         </div>
         <ul class="metismenu" id="menu">

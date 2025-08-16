@@ -6,7 +6,11 @@
                     <div class="overflow-hidden">
                         <div class="text-center mb-lg-0 pb-3">
                             <a href="{{ route('beranda') }}">
-                                <img src="{{ asset('logo/logo-icon.png') }}" width="300">
+                                @if (App\Models\IdentitiySchool::first()?->logo)
+                                    <img src="{{ asset('storage/' . App\Models\IdentitiySchool::first()?->logo) }}">
+                                @else
+                                    <img src="https://placehold.co/100x100">
+                                @endif
                             </a>
                         </div>
                         <div class="row g-0 card shadow rounded-0">

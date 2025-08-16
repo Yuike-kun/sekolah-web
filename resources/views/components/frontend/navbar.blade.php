@@ -9,7 +9,11 @@
                     <div class="col-xl-2 col-lg-2">
                         <div class="logo home-three-logo d-flex">
                             <a class="m-auto" href="{{ route('beranda') }}">
-                                <img src="{{ asset('storage/' . App\Models\IdentitiySchool::first()->logo) }}">
+                                @if (App\Models\IdentitiySchool::first()?->logo)
+                                    <img src="{{ asset('storage/' . App\Models\IdentitiySchool::first()?->logo) }}">
+                                @else
+                                    <img src="https://placehold.co/100x100">
+                                @endif
                             </a>
                         </div>
                     </div>
@@ -21,14 +25,14 @@
                                     <div class="home-three-header-top-content-wrapper-info">
                                         <span>Email Kami</span>
                                         <a
-                                            href="mailto:{{ App\Models\AppIdentitiy::first()->email_school }}">{{ App\Models\AppIdentitiy::first()->email_school }}</a>
+                                            href="mailto:{{ App\Models\AppIdentitiy::first()?->email_school }}">{{ App\Models\AppIdentitiy::first()?->email_school }}</a>
                                     </div>
                                 </li>
                                 <li class="li-content">
                                     <i class="flaticon-map"></i>
                                     <div class="home-three-header-top-content-wrapper-info">
                                         <span>Lokasi Kami</span>
-                                        <a href="#">{{ App\Models\IdentitiySchool::first()->location_study }}</a>
+                                        <a href="#">{{ App\Models\IdentitiySchool::first()?->location_study }}</a>
                                     </div>
                                 </li>
                                 <li class="li-content">
@@ -52,11 +56,11 @@
             <div class="mobile-content">
                 <ul>
                     <li><a href="#"><i
-                                class="fa-brands fa-whatsapp"></i>{{ App\Models\AppIdentitiy::first()->contact_school }}</a>
+                                class="fa-brands fa-whatsapp"></i>{{ App\Models\AppIdentitiy::first()?->contact_school }}</a>
                     </li>
                     <li class="li-content">
                         <a href="mailto:info.wrapdiv.com">
-                            <i class="fa-regular fa-envelope"></i>{{ App\Models\AppIdentitiy::first()->email_school }}
+                            <i class="fa-regular fa-envelope"></i>{{ App\Models\AppIdentitiy::first()?->email_school }}
                         </a>
                     </li>
                 </ul>
@@ -64,13 +68,13 @@
             <div class="mobile-info">
                 <ul>
                     <li>Social Links :</li>
-                    <li><a href="{{ App\Models\AppIdentitiy::first()->facebook_school }}"><i
+                    <li><a href="{{ App\Models\AppIdentitiy::first()?->facebook_school }}"><i
                                 class="fa-brands fa-facebook-f"></i></a></li>
-                    <li><a href="{{ App\Models\AppIdentitiy::first()->instagram_school }}"><i
+                    <li><a href="{{ App\Models\AppIdentitiy::first()?->instagram_school }}"><i
                                 class="fa-brands fa-instagram"></i></a></li>
-                    <li><a href="{{ App\Models\AppIdentitiy::first()->twitter_school }}"><i
+                    <li><a href="{{ App\Models\AppIdentitiy::first()?->twitter_school }}"><i
                                 class="fa-brands fa-twitter"></i></a></li>
-                    <li><a href="{{ App\Models\AppIdentitiy::first()->youtube_school }}"><i
+                    <li><a href="{{ App\Models\AppIdentitiy::first()?->youtube_school }}"><i
                                 class="fa-brands fa-youtube"></i></a></li>
                 </ul>
             </div>
@@ -128,10 +132,14 @@
                                 <div class="menu-right-info">
                                     <div class="hrader-top-info home-three-hrader-top-info">
                                         <ul>
-                                            <li><a href="{{ App\Models\AppIdentitiy::first()->facebook_school }}"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                            <li><a href="{{ App\Models\AppIdentitiy::first()->instagram_school }}"><i class="fa-brands fa-instagram"></i></a></li>
-                                            <li><a href="{{ App\Models\AppIdentitiy::first()->twitter_school }}"><i class="fa-brands fa-twitter"></i></a></li>
-                                            <li><a href="{{ App\Models\AppIdentitiy::first()->youtube_school }}"><i class="fa-brands fa-youtube"></i></a></li>
+                                            <li><a href="{{ App\Models\AppIdentitiy::first()?->facebook_school }}"><i
+                                                        class="fa-brands fa-facebook-f"></i></a></li>
+                                            <li><a href="{{ App\Models\AppIdentitiy::first()?->instagram_school }}"><i
+                                                        class="fa-brands fa-instagram"></i></a></li>
+                                            <li><a href="{{ App\Models\AppIdentitiy::first()?->twitter_school }}"><i
+                                                        class="fa-brands fa-twitter"></i></a></li>
+                                            <li><a href="{{ App\Models\AppIdentitiy::first()?->youtube_school }}"><i
+                                                        class="fa-brands fa-youtube"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
