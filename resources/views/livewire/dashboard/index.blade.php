@@ -195,8 +195,8 @@
                             <div class="col-6 d-flex flex-column align-items-center">
                                 <h5>Nilai Anda</h5>
                                 <div style="width: 50px; height: 50px; border-radius: 50%;"
-                                    class="bg-{{ $this->checkGrade()->grade <= 69 ? 'danger' : 'success' }} d-flex justify-content-center align-items-center fs-6 text-white fw-bold">
-                                    {{ $this->checkGrade()->grade }}
+                                    class="bg-{{ $this->checkGrade()?->grade <= 69 ? 'danger' : 'success' }} d-flex justify-content-center align-items-center fs-6 text-white fw-bold">
+                                    {{ $this->checkGrade()?->grade }}
                                 </div>
                             </div>
                         </div>

@@ -18,6 +18,7 @@ class PPDB extends Model
         'student_address_id',
         'student_parent_id',
         'identitiy_school_id',
+        'student_files',
     ];
 
     // TABLE STUDENT

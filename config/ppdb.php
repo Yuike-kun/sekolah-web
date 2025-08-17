@@ -41,8 +41,13 @@ return [
     ],
 
     'jurusan' => [
-        'IPA',
-        'IPS',
+        'Multimedia',
+        'Teknik Komputer dan Jaringan (TKJ)',
+        'Pemasaran',
+        'Perkantoran',
+        'Agribisnis Pengolahan Hasil Pertanian (APHP)',
+        'Akuntansi dan Lembaga Keuangan (AKL)',
+        'Rekayasa Perangkat Lunak (RPL)'
     ],
 
     'status_keluarga' => [

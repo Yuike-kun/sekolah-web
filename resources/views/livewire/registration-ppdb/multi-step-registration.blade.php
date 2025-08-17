@@ -2,7 +2,7 @@
     <div id="top-step" class="common-title align-title wow fadeInUp mb-5"
         style="visibility: visible; animation-name: fadeInUp;">
         <span>PPDB ONLINE</span>
-        <h4 class="fw-bold">Penerimaan Peserta Didik Baru MTsQ Azhar Center Makassar <br> Tahun Ajaran 2023</h4>
+        <h4 class="fw-bold">Penerimaan Peserta Didik Baru {{ App\Models\IdentitiySchool::first()?->name_school ?? 'School Name' }} <br> Tahun Ajaran {{ now()->format("Y") }}</h4>
     </div>
 
     <x-ppdb.progress-circle :curr-step="$currStep" />
@@ -1016,7 +1016,7 @@
                 <div class="card-body form-register-ppdb mx-3">
                     <div class="row">
                         <div class="alert alert-success" role="alert">
-                            <p>Proses pendaftaran PPDB Online MTsQ Azhar Center Makassar hampir selesai.
+                            <p>Proses pendaftaran PPDB Online {{ App\Models\IdentitiySchool::first()?->name_school ?? 'School Name' }} hampir selesai.
                                 Silahkan periksa kembali data-data yang sudah anda masukkan.</p>
                         </div>
                         <div class="col-12">

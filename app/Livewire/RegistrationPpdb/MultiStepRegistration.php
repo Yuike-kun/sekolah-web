@@ -327,7 +327,7 @@ class MultiStepRegistration extends Component
                 'file_kejuruan'       => 'required|image|max:4096',
                 'file_kartu_keluarga' => 'required|image|max:4096',
                 'file_pkh'            => 'required|image|max:4096',
-                'file_kip'            => 'required|image|max:4096',
+                'file_kip'            => 'nullable|image|max:4096',
             ]);
         }
 
@@ -427,13 +427,13 @@ class MultiStepRegistration extends Component
             ]);
 
             $documentFiles = StudentFiles::create([
-                'file_foto'           => $this->file_foto->store('/pendaftaran/siswa', 'public'),
-                'file_ijazah'         => $this->file_ijazah->store('/pendaftaran/siswa', 'public'),
-                'file_raport'         => $this->file_raport->store('/pendaftaran/siswa', 'public'),
-                'file_kejuruan'       => $this->file_kejuruan->store('/pendaftaran/siswa', 'public'),
-                'file_kartu_keluarga' => $this->file_kartu_keluarga->store('/pendaftaran/siswa', 'public'),
-                'file_pkh'            => $this->file_pkh->store('/pendaftaran/siswa', 'public'),
-                'file_kip'            => $this->file_kip->store('/pendaftaran/siswa', 'public'),
+                'foto'           => $this->file_foto->store('/pendaftaran/siswa', 'public'),
+                'ijazah'         => $this->file_ijazah->store('/pendaftaran/siswa', 'public'),
+                'raport'         => $this->file_raport->store('/pendaftaran/siswa', 'public'),
+                'kejuruan'       => $this->file_kejuruan->store('/pendaftaran/siswa', 'public'),
+                'kartu_keluarga' => $this->file_kartu_keluarga->store('/pendaftaran/siswa', 'public'),
+                'pkh'            => $this->file_pkh->store('/pendaftaran/siswa', 'public'),
+                'kip'            => $this->file_kip?->store('/pendaftaran/siswa', 'public') ?? '-',
             ]);
 
             $ppdb = PPDB::create([
@@ -458,6 +458,14 @@ class MultiStepRegistration extends Component
             Auth::login($user);
 
             DB::commit();
+
+            session()->flash('alert', [
+                'type'    => 'success',
+                'message' => 'Berhasil!',
+                'detail'  => 'Regisrasi Calon Siswa Berhasil. Silahkan Cek Data Kembali.',
+            ]);
+
+            return redirect()->route('beranda');
         } catch (Exception $e) {
             session()->flash('alert', [
                 'type'    => 'danger',
@@ -465,14 +473,6 @@ class MultiStepRegistration extends Component
                 'detail'  => 'Registrasi Calon Siswa Gagal.',
             ]);
         }
-
-        session()->flash('alert', [
-            'type'    => 'success',
-            'message' => 'Berhasil!',
-            'detail'  => 'Regisrasi Calon Siswa Berhasil. Silahkan Cek Data Kembali.',
-        ]);
-
-        return redirect()->route('beranda');
     }
 
     public function render()
