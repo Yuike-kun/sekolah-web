@@ -3760,7 +3760,7 @@ HOME TWO CONTACT
     ABOUT US BANNER
 ==========================*/
 .about-us-banner{
-    background: url('assets/images/about-us-banner.jpg') no-repeat center center;
+    background: url('../images/image-banner.jpg') no-repeat center center;
     background-size: cover;
     height: 450px;
     position: relative;
