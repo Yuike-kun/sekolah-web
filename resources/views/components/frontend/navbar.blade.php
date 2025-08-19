@@ -50,7 +50,11 @@
         <div class="mobile-menu-container">
             <div class="mobile-menu-close"></div>
             <div class="mobile-logo">
-                <img src="{{ asset('logo/logo-icon02.png') }}" alt="logo" width="230">
+                @if (App\Models\IdentitiySchool::first()?->logo)
+                    <img src="{{ asset('storage/' . App\Models\IdentitiySchool::first()?->logo) }}" style="width: 200px">
+                @else
+                    <img src="https://placehold.co/100x100">
+                @endif
             </div>
             <div id="mobile-menu-wrap"></div>
             <div class="mobile-content">

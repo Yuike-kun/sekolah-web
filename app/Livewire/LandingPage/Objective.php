@@ -9,7 +9,7 @@ use Livewire\Component;
 
 class Objective extends Component
 {
-    #[Layout('Layouts.landing-page')]
+    #[Layout('layouts.landing-page')]
     #[Title('Tujuan')]
     public function render()
     {
